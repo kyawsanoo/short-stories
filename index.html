@@ -20,21 +20,21 @@ body {
     overflow-x: hidden;
 }
 
-/* Dark overlay */
+/* Dark overlay (lighter for more transparency) */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.45);
     z-index: -2;
 }
 
-/* ===== Falling Flowers Container ===== */
+/* ===== Flowers floating over content ===== */
 .flowers {
     position: fixed;
     inset: 0;
-    pointer-events: none;
-    z-index: -1;
+    pointer-events: none; /* so you can still click buttons */
+    z-index: 9999; /* ABOVE content */
     overflow: hidden;
 }
 
@@ -67,12 +67,13 @@ body::before {
 }
 
 .content {
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.65); /* more transparent */
     border-radius: 12px;
     padding: 32px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(8px); /* glassy effect */
 }
 
 h1 {
@@ -95,13 +96,14 @@ p {
     padding: 14px 30px;
     font-size: 16px;
     font-weight: 600;
-    background: linear-gradient(180deg, #2563eb, #1e40af);
+    background: rgba(37, 99, 235, 0.85);
     color: #ffffff;
     border-radius: 8px;
     text-decoration: none;
 }
 
 .download-btn:hover {
+    background: rgba(30, 64, 175, 0.85);
     transform: translateY(-2px);
 }
 
@@ -127,7 +129,7 @@ footer {
 </head>
 <body>
 
-<!-- 🌸 Falling flowers container -->
+<!-- 🌸 Flowers floating over content -->
 <div class="flowers"></div>
 
 <div class="wrapper">
@@ -171,7 +173,7 @@ function createFlower() {
     flower.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
     flower.style.left = Math.random() * 100 + 'vw';
     flower.style.animationDuration = (5 + Math.random() * 10) + 's';
-    flower.style.fontSize = (20 + Math.random() * 20) + 'px';
+    flower.style.fontSize = (20 + Math.random() * 25) + 'px';
     flowersContainer.appendChild(flower);
 
     // remove after falling
@@ -179,7 +181,7 @@ function createFlower() {
 }
 
 // Spawn multiple flowers continuously
-setInterval(createFlower, 300); // new flower every 0.3s
+setInterval(createFlower, 250); // faster and more flowers
 
 // ===== Download count =====
 let count = 0;
