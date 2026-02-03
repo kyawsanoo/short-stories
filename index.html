@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        /* ===== Midnight base ===== */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #eaeaea;
 
-            /* Background image */
             background-image: url("background.webp");
             background-size: cover;
             background-position: center;
@@ -19,97 +20,124 @@
             background-attachment: fixed;
         }
 
-        /* Dark overlay for readability */
+        /* Dark overlay */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.45);
+            background: rgba(0, 0, 0, 0.65);
             z-index: -1;
         }
 
-        .container {
-            max-width: 700px;
+        /* Page wrapper (Midnight style width) */
+        .wrapper {
+            max-width: 760px;
             margin: 60px auto;
-            background: rgba(255, 255, 255, 0.92);
-            padding: 30px;
+            padding: 0 20px;
+        }
+
+        /* Content card */
+        .content {
+            background: rgba(15, 23, 42, 0.9);
             border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-            text-align: center;
+            padding: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
         h1 {
-            color: #222;
-            margin-bottom: 16px;
+            margin-top: 0;
+            font-size: 28px;
+            color: #ffffff;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
         }
 
         p {
-            color: #444;
-            line-height: 1.7;
             font-size: 16px;
+            line-height: 1.8;
+            color: #d1d5db;
         }
 
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Download button */
         .download-btn {
             display: inline-block;
             margin-top: 28px;
             padding: 14px 30px;
             font-size: 16px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
+            font-weight: 600;
+            background: linear-gradient(180deg, #2563eb, #1e40af);
+            color: #ffffff;
             border-radius: 8px;
-            transition: background 0.3s, transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .download-btn:hover {
-            background: #1e40af;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+            text-decoration: none;
         }
 
         footer {
-            margin-top: 40px;
+            margin-top: 36px;
             font-size: 14px;
-            color: #777;
+            color: #9ca3af;
+            text-align: center;
         }
 
-        /* Mobile optimization */
+        /* Mobile */
         @media (max-width: 600px) {
-            .container {
-                margin: 30px 16px;
-                padding: 22px;
+            h1 {
+                font-size: 24px;
             }
 
             p {
                 font-size: 15px;
+            }
+
+            .content {
+                padding: 24px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>My Short Story Translation</h1>
+<div class="wrapper">
+    <div class="content">
+        <h1>My Short Story Translation</h1>
 
-    <p>
-        ရုရှဂန္တဝင်စာရေးဆရာကြီး Fyodor Dostoevsky၏
-        <strong>"The Dream of a Ridiculous Man"</strong>
-        ဝတ္ထုတိုကို Constance Garnett၏ အင်္ဂလိပ်ဘာသာပြန်လက်ရာအတိုင်း
-        စာရေးသူမှ မြန်မာ့လူ့အဖွဲ့အစည်း၏ တစ်ထောင့်တစ်နေရာမှ လိုအပ်ချက်အတွက်
-        မြန်မာမှုပြုပြန်ဆိုတင်ဆက်သည်။
-        <br><br>
-        Thank you for taking the time to read and download
-        <strong>ရယ်စရာလူတစ်ယောက်ရဲ့ အိပ်မက်.pdf</strong>.
-    </p>
+        <p>
+            ရုရှဂန္တဝင်စာရေးဆရာကြီး Fyodor Dostoevsky၏
+            <strong>"The Dream of a Ridiculous Man"</strong>
+            ဝတ္ထုတိုကို Constance Garnett၏ အင်္ဂလိပ်ဘာသာပြန်လက်ရာအတိုင်း
+            စာရေးသူမှ မြန်မာ့လူ့အဖွဲ့အစည်း၏ တစ်ထောင့်တစ်နေရာမှ လိုအပ်ချက်အတွက်
+            မြန်မာမှုပြုပြန်ဆိုတင်ဆက်သည်။
+        </p>
 
-    <a class="download-btn"
-       href="https://drive.google.com/file/d/16h3gAQj9nrinbYo5FMYXNzxfGJ1cykil/view?usp=sharing"
-       target="_blank">
-        📥 Download the story
-    </a>
+        <p>
+            Thank you for taking the time to read and download
+            <strong>ရယ်စရာလူတစ်ယောက်ရဲ့ အိပ်မက်.pdf</strong>.
+        </p>
 
-    <footer>
-        © 2026 Kyaw San Oo
-    </footer>
+        <a class="download-btn"
+           href="https://drive.google.com/file/d/16h3gAQj9nrinbYo5FMYXNzxfGJ1cykil/view?usp=sharing"
+           target="_blank">
+            📥 Download the story
+        </a>
+
+        <footer>
+            © 2026 Kyaw San Oo
+        </footer>
+    </div>
 </div>
 
 </body>
