@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        /* ===== Midnight base ===== */
+        /* ===== Base / Midnight Style ===== */
         body {
             margin: 0;
             padding: 0;
@@ -18,6 +18,8 @@
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+
+            overflow-x: hidden;
         }
 
         /* Dark overlay */
@@ -26,17 +28,45 @@
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, 0.65);
-            z-index: -1;
+            z-index: -2;
         }
 
-        /* Page wrapper (Midnight style width) */
+        /* ===== Falling Flowers ===== */
+        .flowers {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            top: -10%;
+            font-size: 24px;
+            animation-name: fall, sway;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite, infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(120vh); }
+        }
+
+        @keyframes sway {
+            0% { margin-left: 0; }
+            50% { margin-left: 40px; }
+            100% { margin-left: 0; }
+        }
+
+        /* ===== Content ===== */
         .wrapper {
             max-width: 760px;
             margin: 60px auto;
             padding: 0 20px;
         }
 
-        /* Content card */
         .content {
             background: rgba(15, 23, 42, 0.9);
             border-radius: 12px;
@@ -58,16 +88,6 @@
             color: #d1d5db;
         }
 
-        a {
-            color: #60a5fa;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Download button */
         .download-btn {
             display: inline-block;
             margin-top: 28px;
@@ -77,13 +97,11 @@
             background: linear-gradient(180deg, #2563eb, #1e40af);
             color: #ffffff;
             border-radius: 8px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
         }
 
         .download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37,99,235,0.4);
-            text-decoration: none;
         }
 
         footer {
@@ -93,23 +111,23 @@
             text-align: center;
         }
 
-        /* Mobile */
         @media (max-width: 600px) {
-            h1 {
-                font-size: 24px;
-            }
-
-            p {
-                font-size: 15px;
-            }
-
-            .content {
-                padding: 24px;
-            }
+            h1 { font-size: 24px; }
+            p { font-size: 15px; }
         }
     </style>
 </head>
 <body>
+
+<!-- 🌸 Falling flowers layer -->
+<div class="flowers">
+    <span class="flower" style="left: 10%; animation-duration: 14s, 4s;">🌸</span>
+    <span class="flower" style="left: 25%; animation-duration: 18s, 6s;">🌼</span>
+    <span class="flower" style="left: 40%; animation-duration: 16s, 5s;">🌺</span>
+    <span class="flower" style="left: 55%; animation-duration: 20s, 7s;">🌸</span>
+    <span class="flower" style="left: 70%; animation-duration: 15s, 4s;">🌼</span>
+    <span class="flower" style="left: 85%; animation-duration: 22s, 8s;">🌺</span>
+</div>
 
 <div class="wrapper">
     <div class="content">
@@ -119,8 +137,8 @@
             ရုရှဂန္တဝင်စာရေးဆရာကြီး Fyodor Dostoevsky၏
             <strong>"The Dream of a Ridiculous Man"</strong>
             ဝတ္ထုတိုကို Constance Garnett၏ အင်္ဂလိပ်ဘာသာပြန်လက်ရာအတိုင်း
-            စာရေးသူမှ မြန်မာ့လူ့အဖွဲ့အစည်း၏ တစ်ထောင့်တစ်နေရာမှ လိုအပ်ချက်အတွက်
-            မြန်မာမှုပြုပြန်ဆိုတင်ဆက်သည်။
+            စာရေးသူမှ မြန်မာ့လူ့အဖွဲ့အစည်း၏ တစ်ထောင့်တစ်နေရာမှ
+            လိုအပ်ချက်အတွက် မြန်မာမှုပြုပြန်ဆိုတင်ဆက်သည်။
         </p>
 
         <p>
