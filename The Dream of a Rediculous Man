@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short Story Translation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        h1 {
+            color: #222;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            font-size: 16px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #1e40af;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>My Short Story Translation</h1>
+
+    <p>
+        This is my translated version of a short story named The Dream of a Rediculous Man by Russia Classical Writer, Fyodor Dostoevsky
+.
+        Thank you for taking the time to read and download it.
+    </p>
+
+    <!-- Replace filename with your actual file -->
+    <a class="download-btn" href="https://drive.google.com/file/d/16h3gAQj9nrinbYo5FMYXNzxfGJ1cykil/view?usp=sharing" download>
+        📥 Download Story
+    </a>
+
+    <footer>
+        © 2026 Kyaw San Oo
+    </footer>
+</div>
+
+</body>
+</html>
