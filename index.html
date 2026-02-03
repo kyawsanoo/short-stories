@@ -1,133 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Short Story Translation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Short Story Translation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        /* ===== Base / Midnight Style ===== */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            color: #eaeaea;
+<style>
+/* ===== Base / Midnight Style ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #eaeaea;
+    background-image: url("background.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
 
-            background-image: url("background.webp");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+/* Dark overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: -2;
+}
 
-            overflow-x: hidden;
-        }
+/* ===== Falling Flowers Container ===== */
+.flowers {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
 
-        /* Dark overlay */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.65);
-            z-index: -2;
-        }
+/* Flower emoji style */
+.flower {
+    position: absolute;
+    top: -50px;
+    font-size: 24px;
+    animation-name: fall, sway;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+}
 
-        /* ===== Falling Flowers ===== */
-        .flowers {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
+@keyframes fall {
+    0% { transform: translateY(-50px); }
+    100% { transform: translateY(120vh); }
+}
 
-        .flower {
-            position: absolute;
-            top: -10%;
-            font-size: 24px;
-            animation-name: fall, sway;
-            animation-timing-function: linear, ease-in-out;
-            animation-iteration-count: infinite, infinite;
-        }
+@keyframes sway {
+    0% { margin-left: 0; }
+    50% { margin-left: 40px; }
+    100% { margin-left: 0; }
+}
 
-        @keyframes fall {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(120vh); }
-        }
+/* ===== Content ===== */
+.wrapper {
+    max-width: 760px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
 
-        @keyframes sway {
-            0% { margin-left: 0; }
-            50% { margin-left: 40px; }
-            100% { margin-left: 0; }
-        }
+.content {
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 1;
+}
 
-        /* ===== Content ===== */
-        .wrapper {
-            max-width: 760px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
+h1 {
+    margin-top: 0;
+    font-size: 28px;
+    color: #ffffff;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 10px;
+}
 
-        .content {
-            background: rgba(15, 23, 42, 0.9);
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-        }
+p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #d1d5db;
+}
 
-        h1 {
-            margin-top: 0;
-            font-size: 28px;
-            color: #ffffff;
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 10px;
-        }
+.download-btn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(180deg, #2563eb, #1e40af);
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+}
 
-        p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #d1d5db;
-        }
+.download-btn:hover {
+    transform: translateY(-2px);
+}
 
-        .download-btn {
-            display: inline-block;
-            margin-top: 28px;
-            padding: 14px 30px;
-            font-size: 16px;
-            font-weight: 600;
-            background: linear-gradient(180deg, #2563eb, #1e40af);
-            color: #ffffff;
-            border-radius: 8px;
-            text-decoration: none;
-        }
+footer {
+    margin-top: 36px;
+    font-size: 14px;
+    color: #9ca3af;
+    text-align: center;
+}
 
-        .download-btn:hover {
-            transform: translateY(-2px);
-        }
+.download-count {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #60a5fa;
+    display: block;
+}
 
-        footer {
-            margin-top: 36px;
-            font-size: 14px;
-            color: #9ca3af;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 24px; }
-            p { font-size: 15px; }
-        }
-    </style>
+@media (max-width: 600px) {
+    h1 { font-size: 24px; }
+    p { font-size: 15px; }
+}
+</style>
 </head>
 <body>
 
-<!-- 🌸 Falling flowers layer -->
-<div class="flowers">
-    <span class="flower" style="left: 10%; animation-duration: 14s, 4s;">🌸</span>
-    <span class="flower" style="left: 25%; animation-duration: 18s, 6s;">🌼</span>
-    <span class="flower" style="left: 40%; animation-duration: 16s, 5s;">🌺</span>
-    <span class="flower" style="left: 55%; animation-duration: 20s, 7s;">🌸</span>
-    <span class="flower" style="left: 70%; animation-duration: 15s, 4s;">🌼</span>
-    <span class="flower" style="left: 85%; animation-duration: 22s, 8s;">🌺</span>
-</div>
+<!-- 🌸 Falling flowers container -->
+<div class="flowers"></div>
 
 <div class="wrapper">
     <div class="content">
@@ -146,17 +147,50 @@
             <strong>ရယ်စရာလူတစ်ယောက်ရဲ့ အိပ်မက်</strong>.
         </p>
 
-        <a class="download-btn"
+        <a id="downloadBtn" class="download-btn"
            href="https://drive.google.com/file/d/16h3gAQj9nrinbYo5FMYXNzxfGJ1cykil/view?usp=sharing"
            target="_blank">
             📥 Download the story
         </a>
+        <span id="downloadCount" class="download-count">Downloads: 0</span>
 
         <footer>
             © 2026 Kyaw San Oo
         </footer>
     </div>
 </div>
+
+<script>
+// ===== Floating flowers JS =====
+const flowersContainer = document.querySelector('.flowers');
+const flowerEmojis = ['🌸','🌼','🌺','🌷','🍃','🌻','🌹'];
+
+function createFlower() {
+    const flower = document.createElement('span');
+    flower.className = 'flower';
+    flower.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+    flower.style.left = Math.random() * 100 + 'vw';
+    flower.style.animationDuration = (5 + Math.random() * 10) + 's';
+    flower.style.fontSize = (20 + Math.random() * 20) + 'px';
+    flowersContainer.appendChild(flower);
+
+    // remove after falling
+    setTimeout(() => flower.remove(), 12000);
+}
+
+// Spawn multiple flowers continuously
+setInterval(createFlower, 300); // new flower every 0.3s
+
+// ===== Download count =====
+let count = 0;
+const downloadBtn = document.getElementById('downloadBtn');
+const downloadDisplay = document.getElementById('downloadCount');
+
+downloadBtn.addEventListener('click', () => {
+    count++;
+    downloadDisplay.textContent = 'Downloads: ' + count;
+});
+</script>
 
 </body>
 </html>
